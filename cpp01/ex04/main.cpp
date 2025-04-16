@@ -1,8 +1,16 @@
 #include <fstream>
 #include <iostream>
 
+std::string ft_replace(std::string value, int s1len, int pos, std::string s2) {
+
+
+  std::string newString = value.substr(0, pos) + s2;
+
+  return newString;
+}
+
 int main(int argc, char **argv) {
-  if (!argc) {
+  if (argc != 4) {
     return 1;
   }
 
@@ -15,6 +23,7 @@ int main(int argc, char **argv) {
     return 1;
   }
 
+
   std::string fileStr;
   std::string line;
   while (std::getline(file, line)) {
@@ -24,17 +33,11 @@ int main(int argc, char **argv) {
   int s1len = std::string(argv[2]).length();
   int s2len = std::string(argv[3]).length();
 
-  std::string s2 = std::string(argv[3]);
 
   int pos = fileStr.find(argv[2]);
 
-  for (int i = 0; i < s1len; i++) {
-    if (i < s2len) {
-      fileStr[pos + i] = s2[i];
-    } else {
-      fileStr[pos + i] = '';
-    }
-  }
+
+  std::cout <<   ft_replace(fileStr, s1len, pos, argv[3]) << std::endl;
 
   std::cout << pos << std::endl;
 
@@ -46,3 +49,4 @@ int main(int argc, char **argv) {
 
   return 0;
 }
+

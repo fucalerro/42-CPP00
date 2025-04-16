@@ -49,6 +49,9 @@ void PhoneBook::search() {
   while (1) {
     std::cout << "Enter the index of the contact: ";
     getline(std::cin, string_index);
+    if (std::cin.eof()) {
+      exit(0);
+    }
 
     if (is_valid_number(string_index))
       break;
@@ -80,6 +83,9 @@ std::string prompt(std::string message) {
     std::cout << message;
     std::string input;
     getline(std::cin, input);
+    if (std::cin.eof()) {
+      exit(0);
+    }
 
     if (!input.empty())
       return input;
@@ -99,7 +105,8 @@ void PhoneBook::add() {
   this->contact[current].set_darkest_secret(
       prompt("Enter the darkest secret: "));
 
-  this->contact_count++;
+  if (this->contact_count < 8)
+    this->contact_count++;
 
   position++;
 

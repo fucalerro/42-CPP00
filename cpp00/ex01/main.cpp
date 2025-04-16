@@ -9,6 +9,10 @@ int main() {
     std::string command;
     getline(std::cin, command);
 
+    if (std::cin.eof()) {
+      break;
+    }
+
     if (command == "EXIT") {
       break;
     }

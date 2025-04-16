@@ -16,6 +16,7 @@ public:
   Contact();
   ~Contact();
 
+  // setters
   void set_index(const int &index);
   void set_first_name(const std::string &first_name);
   void set_last_name(const std::string &last_name);
@@ -23,6 +24,7 @@ public:
   void set_phone_number(const std::string &phone_number);
   void set_darkest_secret(const std::string &darkest_secret);
 
+  // getters
   int get_index() const;
   std::string get_first_name() const;
   std::string get_last_name() const;
